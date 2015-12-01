@@ -15,7 +15,10 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-
+    when /^the edit page for "(.+)"/
+      title = $1
+      movie =  Movie.find_by_title title
+      edit_movie_path movie.id
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
